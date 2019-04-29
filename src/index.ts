@@ -10,6 +10,7 @@ import * as express from "express"
 import * as  graphqlHTTP from "express-graphql"
 import {resolve} from "url";
 import * as functions from "firebase-functions"
+
 function sharedFields(): GraphQLFieldConfigMap<Element, any> {
 	const selector = {
 		type: GraphQLString,
@@ -263,10 +264,9 @@ app.use('/graphql', graphqlHTTP({
 	schema: schema,
 	graphiql: true,
 }));
-app.listen(4000)
+app.listen(process.env.PORT || 4000)
 console.log('Running a GraphQL API server at localhost:4000/graphql');
 
-export const service  = functions.https.onRequest(app)
 // Make this importable with ES6
 // schema['default'] = schema
 // export default schema
