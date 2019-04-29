@@ -264,8 +264,7 @@ app.use('/graphql', graphqlHTTP({
 	schema: schema,
 	graphiql: true,
 }));
-app.listen(process.env.PORT || 4000)
-console.log('Running a GraphQL API server at localhost:4000/graphql');
+export default app
 
 // Make this importable with ES6
 // schema['default'] = schema
