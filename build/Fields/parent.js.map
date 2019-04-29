@@ -1,1 +1,0 @@
-{"version":3,"file":"parent.js","sourceRoot":"","sources":["../../src/Fields/parent.ts"],"names":[],"mappings":";;AAAA,oDAA+C;AAC/C,oCAAqC;AAGrC,MAAM,IAAI,GAAG;IACZ,QAAQ,EAAR,mBAAQ;CACR,CAAA;AACY,QAAA,MAAM,GAAsC;IACxD,IAAI,EAAE,mBAAW;IACjB,WAAW,EAAE,8BAA8B;IAC3C,OAAO,CAAC,OAAO;QACd,OAAO,OAAO,CAAC,aAAa,CAAA;IAC7B,CAAC;CACD,CAAA"}

@@ -1,6 +1,6 @@
-import { GraphQLSchema, GraphQLObjectType } from 'graphql';
+import { GraphQLObjectType } from 'graphql';
+import * as functions from "firebase-functions";
 export declare const ElementType: GraphQLObjectType<Element, any, {
     [key: string]: any;
 }>;
-declare const schema: GraphQLSchema;
-export default schema;
+export declare const service: functions.HttpsFunction;

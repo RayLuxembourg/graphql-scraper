@@ -13,6 +13,7 @@ const jsdom_1 = require("jsdom");
 const express = require("express");
 const graphqlHTTP = require("express-graphql");
 const url_1 = require("url");
+const functions = require("firebase-functions");
 function sharedFields() {
     const selector = {
         type: graphql_1.GraphQLString,
@@ -242,7 +243,9 @@ app.use('/graphql', graphqlHTTP({
 }));
 app.listen(4000);
 console.log('Running a GraphQL API server at localhost:4000/graphql');
+exports.service = functions.https.onRequest(app);
 // Make this importable with ES6
-schema['default'] = schema;
-exports.default = schema;
+// schema['default'] = schema
+// export default schema
+// export
 //# sourceMappingURL=index.js.map

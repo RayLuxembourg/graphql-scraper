@@ -1,1 +1,0 @@
-{"version":3,"file":"previous.js","sourceRoot":"","sources":["../../src/Fields/previous.ts"],"names":[],"mappings":";;AAAA,oDAA+C;AAC/C,oCAAqC;AAGrC,MAAM,IAAI,GAAG;IACZ,QAAQ,EAAR,mBAAQ;CACR,CAAA;AACY,QAAA,QAAQ,GAAsC;IAC1D,IAAI,EAAE,mBAAW;IACjB,WAAW,EACT,uKAAuK;IACzK,OAAO,CAAC,OAAO;QACd,OAAO,OAAO,CAAC,eAAe,CAAA;IAC/B,CAAC;CACD,CAAA"}
