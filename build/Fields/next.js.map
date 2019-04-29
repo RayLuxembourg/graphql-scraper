@@ -1,0 +1,1 @@
+{"version":3,"file":"next.js","sourceRoot":"","sources":["../../src/Fields/next.ts"],"names":[],"mappings":";;AAAA,oDAA+C;AAE/C,oCAAqC;AAErC,MAAM,IAAI,GAAG;IACZ,QAAQ,EAAR,mBAAQ;CACR,CAAA;AAEY,QAAA,IAAI,GAAsC;IACtD,IAAI,EAAE,mBAAW;IACjB,WAAW,EACT,+JAA+J;IACjK,OAAO,CAAC,OAAO;QACd,OAAO,OAAO,CAAC,WAAW,CAAA;IAC3B,CAAC;CACD,CAAA"}

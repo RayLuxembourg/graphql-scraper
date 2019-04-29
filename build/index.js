@@ -7,8 +7,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 const graphql_1 = require("graphql");
 const jsdom_1 = require("jsdom");
+const express = require("express");
+const graphqlHTTP = require("express-graphql");
 const url_1 = require("url");
 function sharedFields() {
     const selector = {
@@ -81,7 +84,7 @@ function sharedFields() {
             },
         },
         query: {
-            type: ElementType,
+            type: exports.ElementType,
             description: 'Equivalent to [Element.querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector). The selectors of any nested queries will be scoped to the resulting element.',
             args: { selector },
             resolve(element, { selector }) {
@@ -89,7 +92,7 @@ function sharedFields() {
             },
         },
         queryAll: {
-            type: new graphql_1.GraphQLList(ElementType),
+            type: new graphql_1.GraphQLList(exports.ElementType),
             description: 'Equivalent to [Element.querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll). The selectors of any nested queries will be scoped to the resulting elements.',
             args: { selector },
             resolve(element, { selector }) {
@@ -97,28 +100,28 @@ function sharedFields() {
             },
         },
         children: {
-            type: new graphql_1.GraphQLList(ElementType),
+            type: new graphql_1.GraphQLList(exports.ElementType),
             description: "An element's child elements.",
             resolve(element) {
                 return Array.from(element.children);
             },
         },
         childNodes: {
-            type: new graphql_1.GraphQLList(ElementType),
+            type: new graphql_1.GraphQLList(exports.ElementType),
             description: "An element's child nodes. Includes text nodes.",
             resolve(element) {
                 return Array.from(element.childNodes);
             }
         },
         parent: {
-            type: ElementType,
+            type: exports.ElementType,
             description: "An element's parent element.",
             resolve(element) {
                 return element.parentElement;
             },
         },
         siblings: {
-            type: new graphql_1.GraphQLList(ElementType),
+            type: new graphql_1.GraphQLList(exports.ElementType),
             description: "All elements which are at the same level in the tree as the current element, ie. the children of the current element's parent. Includes the current element.",
             resolve(element) {
                 const parent = element.parentElement;
@@ -128,14 +131,14 @@ function sharedFields() {
             },
         },
         next: {
-            type: ElementType,
+            type: exports.ElementType,
             description: "The current element's next sibling. Includes text nodes. Equivalent to [Node.nextSibling](https://developer.mozilla.org/en-US/docs/Web/API/Node/nextSibling).",
             resolve(element) {
                 return element.nextSibling;
             },
         },
         nextAll: {
-            type: new graphql_1.GraphQLList(ElementType),
+            type: new graphql_1.GraphQLList(exports.ElementType),
             description: "All of the current element's next siblings",
             resolve(element, { selector }) {
                 const siblings = [];
@@ -146,14 +149,14 @@ function sharedFields() {
             },
         },
         previous: {
-            type: ElementType,
+            type: exports.ElementType,
             description: "The current element's previous sibling. Includes text nodes. Equivalent to [Node.previousSibling](https://developer.mozilla.org/en-US/docs/Web/API/Node/nextSibling).",
             resolve(element) {
                 return element.previousSibling;
             },
         },
         previousAll: {
-            type: new graphql_1.GraphQLList(ElementType),
+            type: new graphql_1.GraphQLList(exports.ElementType),
             description: "All of the current element's previous siblings",
             resolve(element, { selector }) {
                 const siblings = [];
@@ -183,7 +186,7 @@ const DocumentType = new graphql_1.GraphQLObjectType({
             },
         } })),
 });
-const ElementType = new graphql_1.GraphQLObjectType({
+exports.ElementType = new graphql_1.GraphQLObjectType({
     name: 'Element',
     description: 'A DOM element.',
     interfaces: [NodeType],
@@ -232,7 +235,14 @@ const schema = new graphql_1.GraphQLSchema({
         }),
     }),
 });
+const app = express();
+app.use('/graphql', graphqlHTTP({
+    schema: schema,
+    graphiql: true,
+}));
+app.listen(4000);
+console.log('Running a GraphQL API server at localhost:4000/graphql');
 // Make this importable with ES6
 schema['default'] = schema;
-module.exports = schema;
+exports.default = schema;
 //# sourceMappingURL=index.js.map

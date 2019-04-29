@@ -1,5 +1,5 @@
 {
-  "name": "graphql-scraper",
+  "name": "functions",
   "version": "1.2.1",
   "description": "Extract structured data from the web using GraphQL.",
   "author": "harry lachenmayer <harrylachenmayer@gmail.com>",
@@ -7,14 +7,19 @@
   "main": "build/index.js",
   "bin": "bin.js",
   "scripts": {
-    "build": "tsc",
+    "build": "./node_modules/.bin/tslint -p tslint.json && ./node_modules/.bin/tsc",
     "dev": "tsc -w",
-    "test": "tsc; ava build/__tests__/",
     "generate-docs": "graphql-markdown ./build/index.js > doc/schema.md"
   },
   "dependencies": {
+    "@types/express": "^4.16.1",
+    "@types/express-graphql": "^0.8.0",
     "chalk": "^2.3.0",
     "execa": "^0.9.0",
+    "express": "^4.16.4",
+    "express-graphql": "^0.8.0",
+    "firebase-admin": "^7.3.0",
+    "firebase-functions": "^2.3.0",
     "get-stdin": "^5.0.1",
     "graphql": "^14.2.1",
     "isomorphic-fetch": "^2.2.1",
