@@ -9,7 +9,6 @@ import {JSDOM} from 'jsdom'
 import * as express from "express"
 import * as  graphqlHTTP from "express-graphql"
 import {resolve} from "url";
-import * as functions from "firebase-functions"
 
 function sharedFields(): GraphQLFieldConfigMap<Element, any> {
 	const selector = {
@@ -264,10 +263,7 @@ app.use('/graphql', graphqlHTTP({
 	schema: schema,
 	graphiql: true,
 }));
-export default app
+app.listen(process.env.PORT|| 1337)
 
-// Make this importable with ES6
-// schema['default'] = schema
-// export default schema
-// export
+
 

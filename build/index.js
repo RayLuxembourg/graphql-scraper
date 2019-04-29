@@ -240,9 +240,5 @@ app.use('/graphql', graphqlHTTP({
     schema: schema,
     graphiql: true,
 }));
-module.exports = app;
-// Make this importable with ES6
-// schema['default'] = schema
-// export default schema
-// export
+app.listen(process.env.PORT || 1337);
 //# sourceMappingURL=index.js.map
